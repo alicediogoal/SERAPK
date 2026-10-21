@@ -2,7 +2,11 @@
   "name": "ser-servidor",
   "version": "1.0.0",
   "type": "module",
-  "scripts": { "start": "node server.js" },
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env server.js",
+    "check": "node --check server.js"
+  },
   "engines": { "node": ">=20" },
   "dependencies": {
     "better-sqlite3": "^11.0.0",
