@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: ser
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    disk:
+      name: ser-dados
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: TZ
+        value: America/Sao_Paulo
+      - key: DATA_DIR
+        value: /var/data
+      - key: APP_SECRET
+        generateValue: true
+      - key: BRIDGE_KEY
+        generateValue: true
+      - key: DEV_LOGIN
+        value: "true"
+      - key: WA_TOKEN
+        sync: false
+      - key: WA_PHONE_ID
+        sync: false

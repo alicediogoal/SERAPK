@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ser">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0F172A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>Ser</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8FAFC;--sf:#fff;--bd:#E2E8F0;--tx:#0F172A;--mu:#64748B;--pr:#0F172A;--on-pr:#fff;--au:#D4AF37;--ok:#10B981;--okbg:#D1FAE5;--er:#B91C1C;--erbg:#FEE2E2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1220;--sf:#131D33;--bd:#25314D;--tx:#E2E8F0;--mu:#94A3B8;--pr:#0F172A;--okbg:#064E3B;--erbg:#4C1D1D;--er:#FCA5A5;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1220;--sf:#131D33;--bd:#25314D;--tx:#E2E8F0;--mu:#94A3B8;--pr:#0F172A;--okbg:#064E3B;--erbg:#4C1D1D;--er:#FCA5A5;color-scheme:dark}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.5 Inter,system-ui,-apple-system,sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3,.hd{font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif}
+header{background:var(--pr);color:#fff;padding:18px 18px 16px}
+header h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-.5px}
+header p{margin:2px 0 0;color:var(--au);font-size:13px}
+header .who{display:flex;justify-content:space-between;align-items:center;gap:8px}
+main{max-width:640px;margin:0 auto;padding:16px 16px 96px}
+h2{font-size:20px;margin:4px 0 12px}
+h3{font-size:16px;margin:18px 0 8px}
+.muted{color:var(--mu);font-size:14px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:0 0 12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd)}
+.row:last-child{border-bottom:0}
+.row.warn{background:var(--erbg);color:var(--er);padding:11px 10px;border-radius:8px;border:0;margin:4px 0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px}
+.chip{flex:0 0 auto;border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:999px;padding:8px 14px;font:500 14px Inter,sans-serif;min-height:44px}
+.chip.on{background:var(--pr);color:#fff;border-color:var(--au);box-shadow:inset 0 -3px 0 var(--au)}
+.btn{display:inline-block;background:var(--pr);color:#fff;border:0;border-radius:10px;padding:12px 16px;font:600 15px "Plus Jakarta Sans",sans-serif;text-decoration:none;min-height:44px;cursor:pointer}
+.btn.gold{background:var(--au);color:#0F172A}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.btn.sm{padding:8px 12px;font-size:13px;min-height:36px}
+.btn.block{display:block;width:100%;text-align:center}
+.btn.ok{background:var(--ok);color:#042F24}
+input,select,textarea{width:100%;font:16px Inter,sans-serif;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--sf);color:var(--tx);margin:4px 0 10px;min-height:44px}
+select{width:55%;margin:0}
+label{font-size:14px;font-weight:500}
+.chk{display:flex;gap:8px;align-items:center;margin:4px 0 10px}
+.chk input{width:22px;height:22px;min-height:0;margin:0}
+.day{display:flex;justify-content:space-between;align-items:center;width:100%;background:var(--sf);border:1px solid var(--bd);color:var(--tx);border-radius:12px;padding:14px;margin:0 0 8px;font:500 15px Inter,sans-serif;min-height:52px;text-align:left}
+.day.on{background:var(--okbg);border-color:var(--ok)}
+.day b{font-weight:600}
+.tag{display:inline-block;background:var(--au);color:#0F172A;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:600}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--pr);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:5;border-top:2px solid var(--au)}
+nav button{flex:1;background:none;border:0;color:#94A3B8;font:500 12px Inter,sans-serif;padding:10px 2px;min-height:44px}
+nav button.on{color:var(--au);font-weight:600}
+.sw{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+:focus-visible{outline:3px solid var(--au);outline-offset:2px}
+.lg{min-height:100vh;display:flex;flex-direction:column}
+.lg main{padding-top:24px}
+.slogan{font-family:"Plus Jakarta Sans",sans-serif;font-size:15px;color:var(--mu);margin:0 0 20px}
+.ios{font-size:13px;color:var(--mu);margin-top:18px}
+.hero{text-align:center;padding:20px 18px 16px}
+.hero img{display:block;margin:-34px auto -38px;width:min(72vw,280px);height:auto;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(circle,#000 46%,transparent 69%);mask-image:radial-gradient(circle,#000 46%,transparent 69%)}
+header .who{justify-content:flex-start;gap:12px}
+.emb{width:64px;height:auto;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(ellipse,#000 52%,transparent 74%);mask-image:radial-gradient(ellipse,#000 52%,transparent 74%)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const CARGOS=[["Projeção","follow"],["Fotografia","follow"],["Vídeo","follow"],["Story","follow"],["Técnico de Som","som"],["Técnico de Iluminação","ilum"]];
+const MIN={follow:"Follow",som:"Sonoplastia",ilum:"Iluminação"};
+const seed=()=>({members:[
+{id:1,name:"Pr. Daniel (líder)",phone:"11999990001",role:"admin",min:["follow","som","ilum"]},
+{id:2,name:"Ana Lima",phone:"11999990002",role:"member",min:["follow"]},
+{id:3,name:"Bruno Reis",phone:"11999990003",role:"member",min:["som"]},
+{id:4,name:"Carla Souza",phone:"11999990004",role:"member",min:["follow","ilum"]}],
+avail:{},scale:{},notes:{},pub:{},meets:[],sugs:[],files:[],nid:10});
+let S=null,me=null,tab="inicio",day=null,err="";
+try{S=JSON.parse(localStorage.getItem("ser")||"null")}catch(e){}
+S=S||seed();
+try{const id=localStorage.getItem("ser_me");me=S.members.find(m=>String(m.id)===id)||null}catch(e){}
+const save=()=>{try{localStorage.setItem("ser",JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+S.extra=S.extra||[];
+let days=[];
+const holiday=k=>({"12-25":"Natal","01-01":"Ano Novo"}[k.slice(5)]||"");
+const evTitle=k=>{const e=S.extra.find(x=>x.date===k);return e?e.title:holiday(k)};
+function buildDays(){const s=new Set(),d=new Date();d.setHours(12,0,0,0);const t0=d.toISOString().slice(0,10);for(let i=0;i<150;i++){const x=new Date(d);x.setDate(d.getDate()+i);const k=x.toISOString().slice(0,10);if(x.getDay()===0||x.getDay()===3||holiday(k))s.add(k)}S.extra.forEach(e=>{if(e.date>=t0)s.add(e.date)});days=[...s].sort();if(!days.includes(day))day=days[0]}
+const fmt=k=>{const t=evTitle(k);return new Date(k+"T12:00:00").toLocaleDateString("pt-BR",{weekday:"short",day:"2-digit",month:"short"})+(t?" · "+t:"")};
+const wa=(p,t)=>"https://wa.me/"+(p?"55"+p:"")+"?text="+encodeURIComponent(t);
+const ROLES={admin:"ADM",pastor:"Pastor",lider:"Líder",member:"Membro"};
+let reg="";
+const isAdm=()=>me&&me.role==="admin";
+const canEdit=()=>me&&(me.role==="admin"||me.role==="lider");
+const canSee=()=>me&&me.role!=="member";
+const eligible=(m,d)=>S.members.filter(x=>x.min.includes(m)&&(S.avail[x.id]||[]).includes(d));
+const openSlots=()=>{let n=0;days.forEach(d=>CARGOS.forEach(([c,m],i)=>{if(!eligible(m,d).length&&!((S.scale[d]||{})[i]))n++}));return n};
+
+function R(){
+  buildDays();document.getElementById("app").innerHTML=me?shell():login();
+}
+function login(){
+  if(reg)return regView();
+  return `<div class="lg"><header><h1>Ser</h1><p>“Aquele que quer ser o maior, seja o que serve.”</p></header>
+  <main><h2>Entrar</h2><p class="muted">Informe seu WhatsApp. No primeiro acesso, você cria seu cadastro na próxima tela.</p>
+  <label for="ph">WhatsApp (com DDD)</label><input id="ph" type="tel" inputmode="tel" placeholder="11 99999-0001" autocomplete="tel">
+  ${err?`<p style="color:var(--er);margin:0 0 10px">${err}</p>`:""}
+  <button class="btn block" onclick="doLogin()">Continuar</button>
+  <div class="card" style="margin-top:20px"><b>Números de teste</b><p class="muted" style="margin:4px 0 0">Líder: 11999990001<br>Membros: 11999990002, 11999990003, 11999990004</p></div>
+  <p class="ios">No iPhone: abra no Safari, toque em Compartilhar e depois em “Adicionar à Tela de Início”. O Ser abre como um app.</p></main></div>`;
+}
+function doLogin(){
+  const n=document.getElementById("ph").value.replace(/\D/g,"").replace(/^55(?=\d{10,11}$)/,"");
+  const m=S.members.find(x=>x.phone===n);
+  if(!m){if(n.length<10){err="Informe o WhatsApp com DDD.";return R()}reg=n;err="";return R()}
+  err="";me=m;try{localStorage.setItem("ser_me",m.id)}catch(e){}tab="inicio";R();
+}
+function logout(){me=null;try{localStorage.removeItem("ser_me")}catch(e){}R()}
+function regView(){return `<div class="lg"><header class="hero"><img src="logo.jpg" alt="Ser" width="230" height="230"><p>Primeiro acesso</p></header><main><h2>Criar cadastro</h2><p class="muted">WhatsApp: ${reg}</p>
+<label for="rn">Seu nome</label><input id="rn" autocomplete="name" placeholder="Nome e sobrenome">
+<label for="rb">Data de nascimento</label><input id="rb" type="date" autocomplete="bday">
+<label for="re">E-mail</label><input id="re" type="email" inputmode="email" autocomplete="email" placeholder="voce@email.com">
+<p style="margin:4px 0"><b>Em quais ministérios você serve?</b></p>
+${Object.entries(MIN).map(([k,v])=>`<div class="chk"><input type="checkbox" class="rm" value="${k}" id="r${k}"><label for="r${k}">${v}</label></div>`).join("")}
+<div class="chk"><input id="rc" type="checkbox"><label for="rc">Aceito receber lembretes de escala e avisos por WhatsApp.</label></div>
+${err?`<p style="color:var(--er)">${err}</p>`:""}
+<button class="btn block" onclick="doReg()">Criar cadastro</button><button class="btn ghost block" style="margin-top:8px" onclick="reg='';err='';R()">Voltar</button></main></div>`}
+function doReg(){const n=rn.value.trim(),m=[...document.querySelectorAll(".rm:checked")].map(x=>x.value);if(!n||!m.length){err="Informe seu nome e ao menos um ministério.";return R()}if(!rb.value||rb.value>new Date().toISOString().slice(0,10)||rb.value<"1900-01-01"){err="Informe uma data de nascimento válida.";return R()}if(!/^\S+@\S+\.\S+$/.test(re.value.trim())){err="Informe um e-mail válido.";return R()}if(!rc.checked){err="Para usar o Ser, aceite receber as mensagens no WhatsApp.";return R()}const u={id:S.nid++,name:n,phone:reg,birth:rb.value,email:re.value.trim(),role:"member",min:m,optin:true};S.members.push(u);save();me=u;try{localStorage.setItem("ser_me",u.id)}catch(e){}reg="";err="";tab="inicio";R()}
+function setRole(id,r){const m=S.members.find(x=>x.id===id);if(m){m.role=r;save();R()}}
+function minEd(m){return `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">${Object.entries(MIN).map(([k,v])=>`<label class="muted" style="display:flex;gap:5px;align-items:center"><input type="checkbox" style="width:20px;height:20px;min-height:0;margin:0" ${m.min.includes(k)?"checked":""} onchange="setMin(${m.id},'${k}',this.checked)">${v}</label>`).join("")}</div>`}
+function setMin(id,k,on){const m=S.members.find(x=>x.id===id);if(!m)return;const s=new Set(m.min);on?s.add(k):s.delete(k);if(!s.size){alert("A pessoa precisa ter ao menos um ministério.");return R()}m.min=[...s];save();R()}
+function vPerfil(){return `<h2>Meu perfil</h2><div class="sw"><label for="pn">Nome</label><input id="pn" value="${esc(me.name)}" autocomplete="name">
+<label for="pb">Data de nascimento</label><input id="pb" type="date" value="${esc(me.birth||"")}">
+<label for="pe">E-mail</label><input id="pe" type="email" value="${esc(me.email||"")}" autocomplete="email">
+<label for="pt">WhatsApp (usado no login)</label><input id="pt" value="${esc(me.phone)}" disabled>
+<p class="muted">Ministérios: ${me.min.map(k=>MIN[k]).join(", ")}. Quem define a função de cada dia é o líder.</p>
+<button class="btn block" onclick="savePerfil()">Salvar perfil</button></div>`}
+function savePerfil(){const n=pn.value.trim();if(!n)return alert("Informe o nome.");if(pe.value&&!/^\S+@\S+\.\S+$/.test(pe.value))return alert("E-mail inválido.");Object.assign(me,{name:n,birth:pb.value,email:pe.value.trim()});save();alert("Perfil salvo.");R()}
+function niver(){const t=new Date();t.setHours(0,0,0,0);const l=S.members.filter(m=>m.birth).map(m=>{const[,mo,d]=m.birth.split("-").map(Number);let n=new Date(t.getFullYear(),mo-1,d);if(n<t)n=new Date(t.getFullYear()+1,mo-1,d);return{m,n,dias:Math.round((n-t)/864e5)}}).filter(x=>x.dias<=30).sort((a,b)=>a.dias-b.dias);return `<h3>Aniversariantes dos próximos 30 dias</h3>`+(l.length?`<div class="card">`+l.map(x=>`<div class="row"><span>${esc(x.m.name)}</span><span class="muted">${x.dias===0?"Hoje":x.n.toLocaleDateString("pt-BR",{day:"2-digit",month:"short"})}</span></div>`).join("")+`</div>`:`<div class="card muted">Nenhum aniversário nos próximos 30 dias.</div>`)}
+function shell(){
+  const tabs=[["inicio","Início"],["escala","Escala"],["datas","Datas"],["arquivos","Arquivos"],["reunioes","Reuniões"],["mais","Mais"]];
+  const v={inicio:vInicio,escala:vEscala,datas:vDatas,arquivos:vArquivos,reunioes:vReunioes,mais:vMais}[tab]();
+  return `<header><div class="who"><img class="emb" src="emblema.jpg" alt="" width="60" height="45"><div><h1>Ser</h1><p>${esc(me.name)} · ${ROLES[me.role]}</p></div></div></header>
+  <main>${v}</main>
+  <nav>${tabs.map(([k,l])=>`<button class="${tab===k?"on":""}" onclick="go('${k}')">${l}</button>`).join("")}</nav>`;
+}
+function go(t){tab=t;R();window.scrollTo(0,0)}
+function chips(){return `<div class="chips">${days.map(d=>`<button class="chip ${d===day?"on":""}" onclick="setDay('${d}')">${fmt(d)}</button>`).join("")}</div>`}
+function setDay(d){day=d;R()}
+function frase(){return `<div style="width:40px;height:3px;background:var(--au);margin:30px auto 14px"></div><p class="hd" style="text-align:center;margin:0 12px;font-size:17px;font-weight:600">Servir é a nossa forma de parecer com Jesus.</p><p class="muted" style="text-align:center;margin:4px 0 0">Lucas 22:27</p>`}
+function vInicio(){
+  const k=days.find(d=>S.pub[d]&&Object.keys(S.scale[d]||{}).length);
+  let h=`<h2>Próxima escala</h2>`;
+  if(!k)return h+`<div class="card muted">Ainda não há escala finalizada. Quando o líder finalizar, ela aparece aqui.</div><button class="btn ghost block" onclick="go('datas')">Informar minha disponibilidade</button>`+frase();
+  const sc=S.scale[k],mine=CARGOS.filter((c,i)=>sc[i]===me.id).map(c=>c[0]);
+  h+=`<div class="card" style="border-top:4px solid var(--au)"><div class="hd" style="font-size:20px;font-weight:800;margin-bottom:6px">${fmt(k)}</div>`+(mine.length?`<p style="margin:0 0 6px"><span class="tag">Você serve</span> ${mine.join(", ")}</p>`:`<p class="muted" style="margin:0 0 6px">Você não está nesta escala.</p>`);
+  h+=CARGOS.map(([c],i)=>{const m=S.members.find(x=>x.id===sc[i]),me2=sc[i]===me.id;return `<div class="row"${me2?` style="background:var(--okbg);margin:0 -8px;padding:11px 8px;border-radius:8px"`:""}><span>${c}</span><b>${m?esc(m.name):"—"}</b></div>`}).join("");
+  h+=(S.notes[k]?`<p class="muted" style="margin:10px 0 0">Observação do líder: ${esc(S.notes[k])}</p>`:"")+`</div>`;
+  return h+`<button class="btn ghost block" onclick="day='${k}';go('escala')">Ver outras datas</button>`+frase();
+}
+function evForm(){return `<details class="sw"><summary><b>Eventos atípicos</b></summary><label for="et" style="display:block;margin-top:10px">Nome do evento</label><input id="et" placeholder="Ex.: Conferência de jovens"><label for="ed">Data</label><input id="ed" type="date"><button class="btn block" onclick="addEv()">Adicionar evento</button>${S.extra.length?S.extra.slice().sort((a,b)=>a.date<b.date?-1:1).map(e=>`<div class="row"><span>${esc(e.title)}<br><span class="muted">${new Date(e.date+"T12:00:00").toLocaleDateString("pt-BR",{dateStyle:"medium"})}</span></span><button class="btn sm ghost" onclick="delEv('${e.date}')">Remover</button></div>`).join(""):""}<p class="muted">Domingos, quartas, Natal e Ano Novo já aparecem sempre.</p></details>`}
+function addEv(){const t=et.value.trim(),d=ed.value;if(!t||!d)return alert("Informe o nome e a data do evento.");if(d<new Date().toISOString().slice(0,10))return alert("Escolha uma data a partir de hoje.");S.extra=S.extra.filter(e=>e.date!==d);S.extra.push({date:d,title:t});day=d;save();R()}
+function delEv(d){S.extra=S.extra.filter(e=>e.date!==d);save();R()}
+
+function vEscala(){
+  const adm=canEdit(),sc=S.scale[day]||{},note=S.notes[day]||"";
+  let h=`<h2>Escala</h2>`;
+  if(adm){const n=openSlots();h+=n?`<div class="card" style="border-color:var(--er)"><b>${n} vagas abertas</b> nas próximas datas, sem ninguém disponível. Veja cada dia abaixo.</div>`:""}
+  h+=chips();if(adm)h+=evForm();
+  if(!adm&&me.role!=="pastor"&&!S.pub[day])return h+`<div class="card muted">A escala deste dia ainda não foi finalizada pelo líder.</div>`;
+  h+=`<div class="card">`+CARGOS.map(([c,m],i)=>{
+    const cur=S.members.find(x=>x.id===sc[i]);
+    if(!adm)return `<div class="row"><span>${c}</span><b>${cur?esc(cur.name):"—"}</b></div>`;
+    let el=eligible(m,day);if(cur&&!el.includes(cur))el=[cur,...el];
+    if(!el.length)return `<div class="row warn"><span>${c}: vaga aberta</span><span>Ninguém disponível</span></div>`;
+    return `<div class="row"><label for="c${i}">${c}</label><select id="c${i}" onchange="setS(${i},this.value)"><option value="">Escolher</option>${el.map(x=>`<option value="${x.id}" ${x.id===sc[i]?"selected":""}>${esc(x.name)}</option>`).join("")}</select></div>`;
+  }).join("")+`</div>`;
+  if(adm){
+    h+=`<label for="nt">Observações para a equipe</label><textarea id="nt" rows="3" onchange="setN(this.value)" placeholder="Ex.: chegar 1h antes para o ensaio">${esc(note)}</textarea>
+    <button class="btn ${S.pub[day]?"ghost":"ok"} block" onclick="pub()">${S.pub[day]?"Reabrir escala":"Finalizar escala"}</button>`;
+    const ids=[...new Set(Object.values(sc).filter(Boolean))];
+    if(ids.length&&!S.pub[day])h+=`<p class="muted">Os lembretes de WhatsApp só saem depois que você finalizar a escala.</p>`;
+    if(ids.length&&S.pub[day]){
+      h+=`<h3>Lembretes no WhatsApp</h3><div class="card">`+ids.map(id=>{
+        const m=S.members.find(x=>x.id===id);const cg=Object.keys(sc).filter(i=>sc[i]===id).map(i=>CARGOS[i][0]).join(", ");const f=m.name.split(" ")[0];
+        const t=(p)=>`Olá, ${f}! ${p} você serve como ${cg}.${note?" Observação do líder: "+note:""}`;
+        return `<div class="row"><span>${esc(m.name)}</span><span><a class="btn sm ghost" target="_blank" rel="noopener" href="${wa(m.phone,t("Amanhã ("+fmt(day)+")"))}">1 dia antes</a> <a class="btn sm ghost" target="_blank" rel="noopener" href="${wa(m.phone,t("Hoje"))}">No dia</a></span></div>`}).join("")+`</div><p class="muted">Depois de finalizada, cada pessoa recebe no WhatsApp a data e a função, 1 dia antes e no dia. Os botões abaixo servem para reenviar na mão, se precisar.</p>`;
+    }
+  }else if(note)h+=`<div class="card"><b>Observações do líder</b><p style="margin:4px 0 0">${esc(note)}</p></div>`;
+  return h;
+}
+function setS(i,v){S.scale[day]=S.scale[day]||{};if(v)S.scale[day][i]=+v;else delete S.scale[day][i];save();R()}
+function setN(v){S.notes[day]=v;save()}
+function pub(){S.pub[day]=!S.pub[day];save();R()}
+
+function vDatas(){
+  const a=S.avail[me.id]||[];
+  return `<h2>Minha disponibilidade</h2><p class="muted">Toque nas datas em que você pode servir. Depois, o líder define sua função na escala.</p>`+
+  days.map(d=>`<button class="day ${a.includes(d)?"on":""}" aria-pressed="${a.includes(d)}" onclick="tog('${d}')"><span>${fmt(d)}</span><b>${a.includes(d)?"Disponível":"Toque para confirmar"}</b></button>`).join("");
+}
+function tog(d){const a=S.avail[me.id]=S.avail[me.id]||[];const i=a.indexOf(d);i<0?a.push(d):a.splice(i,1);save();R()}
+
+function vArquivos(){
+  return `<h2>Arquivos</h2><p class="muted">Envie imagens, vídeos e áudios para a projeção e o som.</p>
+  <label for="fi">Escolher arquivos</label><input id="fi" type="file" multiple accept="image/*,video/*,audio/*" onchange="addF(this)">
+  <h3>Enviados</h3>`+(S.files.length?`<div class="card">`+S.files.slice().reverse().map(f=>`<div class="row" style="align-items:flex-start"><span style="min-width:0;word-break:break-word">${esc(f.name)}<br><span class="muted">${esc(f.by)} · ${f.kb} KB</span><br><span class="tag">${esc(f.kind)}</span> ${f.off?`<span class="tag" style="background:var(--okbg);color:var(--tx)">Offline</span>`:""} ${f.hol==="fila"?`<span class="tag" style="background:var(--bd);color:var(--tx)">Na fila do Holyrics</span>`:f.hol==="ok"?`<span class="tag" style="background:var(--okbg);color:var(--tx)">No Holyrics</span>`:""}</span><span style="display:flex;flex-direction:column;gap:6px"><button class="btn sm ghost" onclick="dl(${f.id})">Baixar</button>${canEdit()&&!f.hol&&f.id?`<button class="btn sm gold" onclick="toHol(${f.id})">Enviar ao Holyrics</button>`:""}</span></div>`).join("")+`</div>`:`<div class="card muted">Nenhum arquivo ainda. Escolha um acima para começar.</div>`)+
+  `<p class="muted">Os arquivos ficam no servidor e todos podem baixar. Ao baixar, o arquivo também fica salvo no aparelho e abre sem internet. O computador do culto envia ao Holyrics os arquivos marcados pelo líder.</p>`;
+}
+const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open("ser",1);r.onupgradeneeded=()=>r.result.createObjectStore("f");r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+const idbSet=async(k,v)=>{const d=await idb();return new Promise((ok,no)=>{const t=d.transaction("f","readwrite");t.objectStore("f").put(v,k);t.oncomplete=ok;t.onerror=()=>no(t.error)})};
+const idbGet=async k=>{const d=await idb();return new Promise((ok,no)=>{const q=d.transaction("f").objectStore("f").get(k);q.onsuccess=()=>ok(q.result);q.onerror=()=>no(q.error)})};
+async function addF(el){for(const f of [...el.files]){const id=S.nid++;let off=false;try{await idbSet(id,f);off=true}catch(e){}S.files.push({id,name:f.name,kb:Math.round(f.size/1024),by:me.name,kind:f.type.startsWith("video")?"Vídeo":f.type.startsWith("audio")?"Áudio":"Imagem",off,hol:""})}save();R()}
+async function dl(id){const f=S.files.find(x=>x.id===id);try{const b=await idbGet(id);if(!b)throw 0;const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}catch(e){alert("Não foi possível baixar este arquivo aqui. No app instalado, o download funciona.")}}
+function toHol(id){const f=S.files.find(x=>x.id===id);if(f){f.hol="fila";save();R()}}
+
+function vReunioes(){
+  const adm=canSee();
+  const list=S.meets.filter(m=>adm||m.min==="geral"||me.min.includes(m.min)).sort((a,b)=>a.date<b.date?-1:1);
+  let h=`<h2>Reuniões</h2>`;
+  if(adm)h+=`<div class="sw"><label for="mt">Assunto</label><input id="mt" placeholder="Ex.: Alinhamento do culto de domingo">
+  <label for="md">Data e hora</label><input id="md" type="datetime-local">
+  <label for="mm">Quem participa</label><select id="mm" style="width:100%;margin-bottom:10px"><option value="geral">Todos os ministérios</option>${Object.entries(MIN).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select>
+  <button class="btn block" onclick="addM()">Agendar reunião</button></div>`;
+  return h+(list.length?`<div class="card">`+list.map(m=>`<div class="row"><span><b>${esc(m.title)}</b><br><span class="muted">${new Date(m.date).toLocaleString("pt-BR",{dateStyle:"medium",timeStyle:"short"})}</span></span><span class="tag">${m.min==="geral"?"Geral":MIN[m.min]}</span></div>`).join("")+`</div>`:`<div class="card muted">Nenhuma reunião agendada.</div>`);
+}
+function addM(){const t=mt.value.trim(),d=md.value;if(!t||!d)return alert("Preencha o assunto e a data.");S.meets.push({title:t,date:d,min:mm.value});save();R()}
+
+function vMais(){
+  const adm=canSee();
+  let h=vPerfil()+`<h2>Caixa de sugestões</h2><div class="sw"><label for="sg">Sua sugestão</label><textarea id="sg" rows="3" placeholder="O que podemos melhorar?"></textarea>
+  <div class="chk"><input id="an" type="checkbox"><label for="an">Enviar sem identificação</label></div><button class="btn block" onclick="addSg()">Enviar sugestão</button></div>`;
+  if(adm){
+    h+=`<h3>Sugestões recebidas</h3>`+(S.sugs.length?`<div class="card">`+S.sugs.slice().reverse().map(s=>`<div class="row"><span>${esc(s.text)}<br><span class="muted">${s.by?esc(s.by):"Anônimo"}</span></span></div>`).join("")+`</div>`:`<div class="card muted">Nenhuma sugestão ainda.</div>`);
+    h+=niver()+`<h3>Equipe</h3><div class="card">`+S.members.map(m=>`<div class="row"><span>${esc(m.name)}<br><span class="muted">${m.phone}${m.email?" · "+esc(m.email):""}</span>${canEdit()?minEd(m):`<br><span class="muted">${m.min.map(k=>MIN[k]).join(", ")}</span>`}</span>${isAdm()&&m.id!==me.id?`<select aria-label="Função de ${esc(m.name)}" style="width:42%" onchange="setRole(${m.id},this.value)">${Object.entries(ROLES).map(([k,v])=>`<option value="${k}" ${m.role===k?"selected":""}>${v}</option>`).join("")}</select>`:`<span class="tag">${ROLES[m.role]||"Membro"}</span>`}</div>`).join("")+`</div>`;
+  }
+  return h+`<button class="btn ghost block" onclick="logout()">Sair</button>`;
+}
+function addSg(){const t=sg.value.trim();if(!t)return alert("Escreva sua sugestão.");S.sugs.push({text:t,by:an.checked?"":me.name});save();alert("Sugestão enviada. Obrigado!");R()}
+function addMem(){
+  const n=nn.value.trim(),p=np.value.replace(/\D/g,""),m=[...document.querySelectorAll(".nm:checked")].map(x=>x.value);
+  if(!n||p.length<10||!m.length)return alert("Informe nome, WhatsApp com DDD e ao menos um ministério.");
+  if(S.members.some(x=>x.phone===p))return alert("Este número já está cadastrado.");
+  S.members.push({id:S.nid++,name:n,phone:p,role:"member",min:m});save();R();
+}
+</script>
+<script src="api.js"></script>
+</body>
+</html>
